@@ -3,7 +3,7 @@ Implementation of Universal Set in C++
 * on templates 
 * with an array from STL as a container
 * with copy/move constructors and assignment operators
-* with custom forward iterator and vector class using std::bitset to mark whether element is inserted in the array or not
+* with custom forward iterator and Vector class using std::bitset to mark whether element is inserted in the array or not
 
 ## Operations:
 - function to get an element at certain position (also for overloaded operator[])
