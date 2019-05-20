@@ -16,7 +16,7 @@ Implementation of Universal Set in C++
 - find (function isMember)
 - iterator for particular element
 - count (number of elements)
-- function to check equality or inequality of sets
+- functions to check equality or inequality of sets
 - functions to find union, intersection, relative complement and symmetric difference of sets
 - iterators to begin and end
 
