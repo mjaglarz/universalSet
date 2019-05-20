@@ -2,12 +2,10 @@
 #include <string>
 #include "universalSet.hpp"
 
-using namespace std;
-
 template <typename T, std::size_t N>
-void printSizeAndElems(const typename UniversalSet<T, N>::Vector &v){
+void printSizeAndElems(const typename UniversalSet<T, N>::Vector& v){
   std::cout << "Size: " << v.count() << std::endl;
-  for(auto &e : v) std::cout << e << ", ";
+  for(auto& e : v) std::cout << e << ", ";
   std::cout << std::endl;
 }
 
@@ -18,20 +16,23 @@ int main(){
   auto v2 = us.makeVector();
 
   for(std::size_t i = 0u; i < us.universeSize(); ++i){
-    if(i & 1u) v1.insert(i);
-    else v2.insert(i);
+    if(i & 1u){
+      v1.insert(i);
+    }else{
+      v2.insert(i);
+    }
   }
 
   auto v3 = v2;
 
-  std::cout << (v1.isMember(1u) ? "Znaleziono" : "Nie znaleziono") << std::endl;
-  std::cout << (v1.isMember(2u) ? "Znaleziono" : "Nie znaleziono") << std::endl;
-  std::cout << (v2.remove(8u) ? "Usunieto" : "Nie usunieto") << std::endl;
-  std::cout << (v2.remove(9u) ? "Usunieto" : "Nie usunieto") << std::endl;
-  std::cout << (v3.insert(1u).second ? "Dodano" : "Nie dodano") << std::endl;
-  std::cout << (v3.insert(2u).second ? "Dodano" : "Nie dodano") << std::endl;
-  std::cout << (v3.insert(3u).second ? "Dodano" : "Nie dodano") << std::endl;
-  std::cout << (v3.insert(4u).second ? "Dodano" : "Nie dodano") << std::endl;
+  std::cout << (v1.isMember(1u) ? "Found" : "Couldn't find") << std::endl;
+  std::cout << (v1.isMember(2u) ? "Found" : "Couldn't find") << std::endl;
+  std::cout << (v2.remove(8u) ? "Removed" : "Couldn't remove") << std::endl;
+  std::cout << (v2.remove(9u) ? "Removed" : "Couldn't remove") << std::endl;
+  std::cout << (v3.insert(1u).second ? "Added" : "Couldn't add") << std::endl;
+  std::cout << (v3.insert(2u).second ? "Added" : "Couldn't add") << std::endl;
+  std::cout << (v3.insert(3u).second ? "Added" : "Couldn't add") << std::endl;
+  std::cout << (v3.insert(4u).second ? "Added" : "Couldn't add") << std::endl;
 
   auto v4 = v1 + v3;
   const auto v5 = v3 - v2;
@@ -48,9 +49,7 @@ int main(){
 
   std::cout << (it1 ? *it1 : "end") << std::endl;
   std::cout << (it2 ? *it2 : "end") << std::endl;
-  // *it2 = "nie powinno sie skompilowac";
   std::cout << us[2] << std::endl;
-  // us[2] = "nie powinno sie skompilowac";
 
   return 0;
 }
